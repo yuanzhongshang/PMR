@@ -1,0 +1,15 @@
+Package: PMR
+Type: Package
+Title: Probabilistic two sample Mendelian Randomization
+Version: 1.0
+Author: Zhongshang Yuan, Xiang Zhou
+Maintainer: Zhongshang Yuan <yuanzhongshang@sdu.edu.cn>
+Description: This package provides the functions to fit the probabilistic two sample MR model. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp (>= 1.0.0), RcppArmadillo, CompQuadForm
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.1.1
+NeedsCompilation: yes
+Packaged: 2019-09-06 19:58:13 UTC; zhongshy

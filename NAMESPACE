@@ -1,0 +1,8 @@
+useDynLib(PMR, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom(CompQuadForm, davies)
+importFrom(stats, na.omit)
+importFrom(stats, pchisq)
+importFrom(stats, sd)
+importFrom(stats, pnorm)
+exportPattern("^[[:alpha:]]+")
