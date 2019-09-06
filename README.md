@@ -23,7 +23,7 @@ library(PMR)
 
 ?PMR_individual
 
-?PMR_summary
+?PMR_summary_Egger
 
 # Example
 
