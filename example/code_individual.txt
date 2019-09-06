@@ -1,0 +1,32 @@
+library(PMR)
+
+#load the simulated scaled genenotype matrix in eQTL data (e.g. the 465*50 cis-SNP genotype matrix of BACE1 gene from GEUVADIS data)
+zx<-read.table("zx.txt")
+zx<-as.matrix(zx)
+
+#load the simulated scaled genenotype matrix in GWAS data (e.g. the same cis-SNPs from GERA data)
+zy<-read.table("zy.txt")
+zy<-as.matrix(zy)
+
+#load the simulated exposure or gene expression vector
+x<-read.table("x.txt")
+x<-as.vector(x[[1]])
+
+#load the simulated phenotype vector
+y<-read.table("y.txt")
+y<-as.vector(y[[1]])
+
+yin<-scale(x)
+zin<-scale(y)
+x1in<-scale(zx)
+x2in<-scale(zy)
+
+#run PMR under Egger pleiotropy assumption 
+result<-PMR_individual(yin, zin, x1in, x2in, method = "PMR_individual_Egger",  max_iterin = 1000, epsin = 1e-05,  Heritability_geneexpression_threshold = 1e-04)
+
+#run PMR under polygenic pleiotropy assumption with p value calculated from mixed chisquare distribution
+#result<-PMR_individual(yin, zin, x1in, x2in, method = "PMR_individual_VC_mixchisquare",  max_iterin = 1000, epsin = 1e-05,  Heritability_geneexpression_threshold = 1e-04)
+
+#run PMR under polygenic pleiotropy assumption with p value calculated from normal distribution
+#result<-PMR_individual(yin, zin, x1in, x2in, method = "PMR_individual_VC_normal",  max_iterin = 1000, epsin = 1e-05,  Heritability_geneexpression_threshold = 1e-04)
+
