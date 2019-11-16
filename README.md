@@ -18,12 +18,13 @@ There are two main functions in PMR package, one is *PMR_individual* for individ
 For PMR_indvidual, two pleiotropy model assumptions have been designed, one is the Egger assumption, the other is polygenic assumption (variance component model). 
 Note that the current version of pleiotropy assumption for summary data is Egger, which has been implemented by function *PMR_summary_Egger*. 
 You can find the instructions by '?PMR_individual' and '?PMR_summary_Egger'. 
-
+```
 library(PMR)
 
 ?PMR_individual
 
 ?PMR_summary_Egger
+```
 
 # Example
 
