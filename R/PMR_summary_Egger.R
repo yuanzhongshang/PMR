@@ -1,3 +1,4 @@
+#' @importFrom PDSCE pdsoft
 #' @title The main function for probabilistic two-sample MR model with summary data under Egger pleiotropy effect assumption
 #' @description PMR_summary_Egger applies a likelihood-based approach, accounting for the correlated instruments and horizontal pleiotropy effect 
 #' @param Zscore_1 the Zscore vector of the cis-SNP effect size vector for one specific gene in eQTL data
@@ -6,6 +7,9 @@
 #' @param Sigma2sin the LD matrix in GWAS data,both Sigma2sin and sigma1sin are often the same from the reference panel
 #' @param samplen1 the sample size of eQTL data
 #' @param samplen2 the sample size of GWAS data
+#' @param lambda The shrinkage parameter to guarantee the sparsity and positive definiteness of the estimated GWAS LD matrix using
+#' the method in PDSCE package,the default value is 0 to indicate almost no shrikage, other choice can be empirically 
+#' chosen to be 0.05,0.1,0.15. 
 #' @param max_iterin The maximum iteration, which can be determined by users.
 #' @param epsin The convergence tolerance of the absolute value of the difference  between the nth and (n+1)th log likelihood, which can be determined by users.
 #' @param Heritability_geneexpression_threshold The threshold for the estimate of gene expression heritability explained by cis-SNPs, which can be determined by users. The causal effect pvalue will be assigned to be NA automatically if the the estimate of gene expression heritability is under this threshold.
@@ -18,9 +22,10 @@
 #' \item{sigma_error_1}{The variance estimate of the error in eQTL data model}
 #' \item{sigma_error_2}{The variance estimate of the error in GWAS data model}
 
-PMR_summary_Egger<-function(Zscore_1, Zscore_2, Sigma1sin, Sigma2sin, samplen1, samplen2, max_iterin =1000,epsin=1e-5, Heritability_geneexpression_threshold=1e-04){
+PMR_summary_Egger<-function(Zscore_1, Zscore_2, Sigma1sin, Sigma2sin, samplen1, samplen2, lambda=0, max_iterin =1000,epsin=1e-5, Heritability_geneexpression_threshold=1e-04){
 betaxin<-Zscore_1/sqrt(samplen1-1)
 betayin<-Zscore_2/sqrt(samplen2-1)
+Sigma2sin<-pdsoft(Sigma2sin,lam=lambda)$theta 
 fmH1=PMR_summary_Egger_CPP(betaxin,betayin,Sigma1sin,Sigma2sin,samplen1,samplen2,gammain=0,alphain=0,max_iterin =max_iterin, epsin=epsin)
 p=length(betaxin)
 Heritability_estimate=p*fmH1$sigmabeta
