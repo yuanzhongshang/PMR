@@ -30,6 +30,6 @@ n2=2000
 
 #run PMR with the summary data
 
-result = PMR_summary_Egger(Zscore_1, Zscore_2, LDmatrix_1, LDmatrix_2, samplen1=n1, samplen2=n2, max_iterin =1000,epsin=1e-5, Heritability_geneexpression_threshold=1e-04)
+result = PMR_summary_Egger(Zscore_1, Zscore_2, LDmatrix_1, LDmatrix_2, samplen1=n1, samplen2=n2, lambda=0,max_iterin =1000,epsin=1e-5, Heritability_geneexpression_threshold=0)
 
 
