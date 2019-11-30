@@ -8,7 +8,7 @@ Description: This package provides the functions to fit the probabilistic two sa
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 1.0.0), RcppArmadillo, CompQuadForm
+Imports: Rcpp (>= 1.0.0), RcppArmadillo, CompQuadForm,PDSCE
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.1.1
 NeedsCompilation: yes
