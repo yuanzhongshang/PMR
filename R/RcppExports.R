@@ -17,3 +17,11 @@ PMR_summary_Egger_CPP <- function(betaxin, betayin, Sigma1sin, Sigma2sin, sample
     .Call(`_PMR_PMR_summary_Egger_CPP`, betaxin, betayin, Sigma1sin, Sigma2sin, samplen1, samplen2, gammain, alphain, max_iterin, epsin)
 }
 
+moPMR_individual_Egger <- function(xin, Yin, Zxin, Zyin, gammain, alphain, max_iterin, epsin) {
+    .Call(`_PMR_moPMR_individual_Egger`, xin, Yin, Zxin, Zyin, gammain, alphain, max_iterin, epsin)
+}
+
+moPMR_summary_Egger <- function(betaxin, betayin, Sigma1sin, Sigma2sin, Sigmayin, samplen1, samplen2, gammain, alphain, max_iterin, epsin) {
+    .Call(`_PMR_moPMR_summary_Egger`, betaxin, betayin, Sigma1sin, Sigma2sin, Sigmayin, samplen1, samplen2, gammain, alphain, max_iterin, epsin)
+}
+
