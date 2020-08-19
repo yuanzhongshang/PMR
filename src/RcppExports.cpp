@@ -72,12 +72,53 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// moPMR_individual_Egger
+SEXP moPMR_individual_Egger(SEXP xin, SEXP Yin, SEXP Zxin, SEXP Zyin, SEXP gammain, SEXP alphain, SEXP max_iterin, SEXP epsin);
+RcppExport SEXP _PMR_moPMR_individual_Egger(SEXP xinSEXP, SEXP YinSEXP, SEXP ZxinSEXP, SEXP ZyinSEXP, SEXP gammainSEXP, SEXP alphainSEXP, SEXP max_iterinSEXP, SEXP epsinSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type xin(xinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Yin(YinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Zxin(ZxinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Zyin(ZyinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type gammain(gammainSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alphain(alphainSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type max_iterin(max_iterinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type epsin(epsinSEXP);
+    rcpp_result_gen = Rcpp::wrap(moPMR_individual_Egger(xin, Yin, Zxin, Zyin, gammain, alphain, max_iterin, epsin));
+    return rcpp_result_gen;
+END_RCPP
+}
+// moPMR_summary_Egger
+SEXP moPMR_summary_Egger(SEXP betaxin, SEXP betayin, SEXP Sigma1sin, SEXP Sigma2sin, SEXP Sigmayin, SEXP samplen1, SEXP samplen2, SEXP gammain, SEXP alphain, SEXP max_iterin, SEXP epsin);
+RcppExport SEXP _PMR_moPMR_summary_Egger(SEXP betaxinSEXP, SEXP betayinSEXP, SEXP Sigma1sinSEXP, SEXP Sigma2sinSEXP, SEXP SigmayinSEXP, SEXP samplen1SEXP, SEXP samplen2SEXP, SEXP gammainSEXP, SEXP alphainSEXP, SEXP max_iterinSEXP, SEXP epsinSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type betaxin(betaxinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type betayin(betayinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Sigma1sin(Sigma1sinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Sigma2sin(Sigma2sinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type Sigmayin(SigmayinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type samplen1(samplen1SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type samplen2(samplen2SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type gammain(gammainSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alphain(alphainSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type max_iterin(max_iterinSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type epsin(epsinSEXP);
+    rcpp_result_gen = Rcpp::wrap(moPMR_summary_Egger(betaxin, betayin, Sigma1sin, Sigma2sin, Sigmayin, samplen1, samplen2, gammain, alphain, max_iterin, epsin));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_PMR_Estimate_VC_1", (DL_FUNC) &_PMR_Estimate_VC_1, 4},
     {"_PMR_Estimate_VC_2", (DL_FUNC) &_PMR_Estimate_VC_2, 4},
     {"_PMR_PMR_individual_Egger", (DL_FUNC) &_PMR_PMR_individual_Egger, 8},
     {"_PMR_PMR_summary_Egger_CPP", (DL_FUNC) &_PMR_PMR_summary_Egger_CPP, 10},
+    {"_PMR_moPMR_individual_Egger", (DL_FUNC) &_PMR_moPMR_individual_Egger, 8},
+    {"_PMR_moPMR_summary_Egger", (DL_FUNC) &_PMR_moPMR_summary_Egger, 11},
     {NULL, NULL, 0}
 };
 
