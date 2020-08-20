@@ -35,8 +35,8 @@ One simple example to use the package can be found at https://github.com/yuanzho
 
 # Results reproduced 
 
-All results from all methods used in the PMR paper can be reproduced at https://github.com/yuanzhongshang/PMRreproduce for single trait analysis, and at https://github.com/yuanzhongshang/moPMRreproduce for multiple outcome traist analysis.
+All results from all methods used in the PMR paper can be reproduced at https://github.com/yuanzhongshang/PMRreproduce for single trait analysis, and at https://github.com/yuanzhongshang/moPMRreproduce for multiple outcome traits analysis.
 
 # Development
-This R package is developed by Zhongshang Yuan and Xiang Zhou.
+This R package is developed by Lu Liu, Zhongshang Yuan and Xiang Zhou.
 
