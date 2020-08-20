@@ -1,0 +1,26 @@
+library(moPMR)
+
+#load the simulated scaled genenotype matrix in eQTL data (e.g. the 465*513 cis-SNP genotype matrix of BACE1 gene from GEUVADIS data)
+Zx<-read.table("Zx.txt")
+Zx<-as.matrix(Zx)
+
+#load the simulated scaled genenotype matrix in GWAS data (e.g. the same cis-SNPs from GERA data of four traits)
+Zy<-read.table("Zy.txt")
+Zy<-as.matrix(Zy)
+
+#load the simulated exposure or gene expression vector
+x<-read.table("x.txt")
+x<-as.vector(x[[1]])
+
+#load the simulated phenotype vector
+Y<-read.table("Y.txt")
+Y<-as.matrix(Y)
+
+xin<-scale(x)
+Yin<-scale(Y)
+Zxin<-scale(Zx)
+Zyin<-scale(Zy)
+
+#run moPMR 
+result<-moPMR_individual(xin, Yin, Zxin, Zyin, max_iterin = 1000, epsin = 1e-05,  Heritability_geneexpression_threshold = 1e-04)
+

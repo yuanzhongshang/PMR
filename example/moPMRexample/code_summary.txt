@@ -1,0 +1,40 @@
+library(moPMR)
+
+#load the Zscore vector for the cis-SNP effect size from the eQTL data
+
+Zscore_1<-read.table("Zscore1.txt")
+Zscore_1<-as.vector(Zscore_1[[1]])
+
+#load the Zscore vector for the cis-SNP effect size from the GWAS data
+
+Zscore_2<-read.table("Zscore2.txt")
+Zscore_2<-as.matrix(Zscore_2)
+
+#load the LD matrix for the cis-SNPs in the eQTL data
+
+LDmatrix_1<-read.table("LDmatrix1.txt")
+LDmatrix_1<-as.matrix(LDmatrix_1)
+
+#load the LD matrix for the cis-SNPs in the GWAS data
+
+LDmatrix_2<-read.table("LDmatrix2.txt")
+LDmatrix_2<-as.matrix(LDmatrix_2)
+
+#LDmatrix_1 and LDmatrix_2 are often from the same reference panel data 
+
+#load the correlated matrix among traits
+
+cormatrix<-read.table("cormatrix.txt")
+cormatrix<-as.matrix(cormatrix)
+
+#load the sample size n1 from eQTL data and n2 from GWAS data 
+
+n1=465
+
+n2=2000
+
+#run PMR with the summary data
+
+result = moPMR_summary(Zscore_1, Zscore_2, LDmatrix_1, LDmatrix_2, cormatrix, samplen1=n1, samplen2=n2, max_iterin =1000,epsin=1e-5, Heritability_geneexpression_threshold=1e-04)
+
+
