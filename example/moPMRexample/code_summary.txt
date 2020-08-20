@@ -1,4 +1,4 @@
-library(moPMR)
+library(PMR)
 
 #load the Zscore vector for the cis-SNP effect size from the eQTL data
 
