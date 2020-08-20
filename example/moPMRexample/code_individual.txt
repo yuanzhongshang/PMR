@@ -1,4 +1,4 @@
-library(moPMR)
+library(PMR)
 
 #load the simulated scaled genenotype matrix in eQTL data (e.g. the 465*513 cis-SNP genotype matrix of BACE1 gene from GEUVADIS data)
 Zx<-read.table("Zx.txt")
